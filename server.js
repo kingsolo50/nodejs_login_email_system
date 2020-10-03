@@ -46,8 +46,8 @@ const   db = mongoose.connection;
 
         //API ROUTES 
         app.use('/api', api);       
-        app.use('/userL', userLogin);
-        app.use('/userR', userRegistration); 
+        app.use('/login', userLogin);
+        app.use('/register', userRegistration); 
         
         //HEROKU SETUP
         if (port == null || port == "") {
