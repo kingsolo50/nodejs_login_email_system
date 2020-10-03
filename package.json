@@ -1,0 +1,36 @@
+{
+  "name": "nodeloginsystem",
+  "version": "1.0.0",
+  "description": "Node JS login and email verification system",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingsolo50/nodejsloginsystem.git"
+  },
+  "author": "Solomon K S Kamanu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingsolo50/nodejsloginsystem/issues"
+  },
+  "homepage": "https://github.com/kingsolo50/nodejsloginsystem#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.3",
+    "express-session": "^1.17.1",
+    "helmet": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.7",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.13",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}
