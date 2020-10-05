@@ -6,21 +6,19 @@ const   mongoose  = require('mongoose'),
 
 
 const   localUserSchema = new Schema({
-        local: {
-          email: { type: String, lowercase: true },
-          password: String,
-          username: String, 
-          pin: Number, 
-          picture: String,
-          firstName: String,
-          lastName: String,
-          postCode: String,
-          contactNumber: String
-        },
-        admin: { type: Boolean, default: false },
-        emailVerified: { type: Boolean, default: false },
-        created: { type: Date, default: Date.now }
-}); 
+            email: { type: String, lowercase: true },
+            password: { type: String, required: true },
+            username: { type: String }, 
+            pin: { type: Number, required: true }, 
+            picture: String,
+            firstName: String,
+            lastName: String,
+            postCode: String,
+            contactNumber: String,
+            admin: { type: Boolean, default: false },
+            emailVerified: { type: Boolean, default: false },
+            created: { type: Date, default: Date.now }
+        }); 
 
 // =====================================================================
 // PROFILE AVATAR GENERATOR 
