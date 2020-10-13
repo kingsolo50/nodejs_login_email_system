@@ -5,7 +5,7 @@ const   mongoose  = require('mongoose'),
         Schema    = mongoose.Schema;
 
 
-const   localUserSchema = new Schema({
+const   userSchema = new Schema({
             email: { type: String, lowercase: true },
             password: { type: String, required: true },
             username: { type: String }, 
@@ -23,7 +23,7 @@ const   localUserSchema = new Schema({
 // =====================================================================
 // PROFILE AVATAR GENERATOR 
 // =====================================================================
-localUserSchema.methods.avatar = function(size) {
+userSchema.methods.avatar = function(size) {
     if (!this.size) size = 200;
     if (!this.email) return 'https://gravatar.com/avatar/?s' + size + '&d=retro';
 
@@ -35,7 +35,7 @@ localUserSchema.methods.avatar = function(size) {
     return 'https://gravatar.com/avatar/' + hash + '?s' + size + '&d=retro';
 };
 
-module.exports = mongoose.model('localUser', localUserSchema, 'localUsers'); 
+module.exports = mongoose.model('User', userSchema); 
 
 
 

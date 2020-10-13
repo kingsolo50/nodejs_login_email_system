@@ -1,11 +1,15 @@
 const mocha = require('mocha');
+const { db } = require('../models/localUser');
 const assert = require('chai').assert;
 const expect = require('chai').expect;
 const localUser = require('../models/localUser');
+const registerApi = require('../routes/userRegistration');
 
 
   describe('User', function () {
+
     describe('#save()', function () {
+      //1
       it('should save without error', function () {
         var user = new localUser({
           email: 'email@hotmail.com',

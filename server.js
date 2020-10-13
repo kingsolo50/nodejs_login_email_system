@@ -12,6 +12,7 @@ const   express = require("express"),
         
 //ROUTES
         api                 = require("./routes/api"),
+        admin               = require("./routes/admin"),
         userLogin           = require("./routes/userLogin"), 
         userRegistration    = require("./routes/userRegistration"),        
         
@@ -46,6 +47,7 @@ const   db = mongoose.connection;
 
         //API ROUTES 
         app.use('/api', api);       
+        app.use('/admin', admin);       
         app.use('/login', userLogin);
         app.use('/register', userRegistration); 
         
