@@ -84,21 +84,22 @@ router
                             //! create reusable transporter object using the default SMTP transport                         
                             //? ETHEREAL DUMMY ACCOUNT
                             //* create email here ==> https://ethereal.email/create
-
+                            
+                            // Nodemailer configuration                            
                             const transporter = nodemailer.createTransport({
                                 host: 'smtp.ethereal.email',
                                 port: 587,
                                 auth: {
-                                    user: 'willy.rempel@ethereal.email',
-                                    pass: 'yRnHBqRg1eu8C7fEGD'
+                                    user: 'wilford84@ethereal.email',
+                                    pass: 'eFNnH7YhqQMd31Rudx'
                                 }
                             });
-              
+                            
                             // send mail with defined transport object
                             let info = await transporter.sendMail({
                               from: '"Block L93" <info@blockl93.com>', // sender address
                               to: `${req.body.email}`, // list of receivers
-                              subject: "Hi ✔ Come We Cook Email verification", // Subject line
+                              subject: "Hi ✔ Please verify your email", // Subject line
                               //* Route where user will be directed to
                               //* And where we will grab their auth token
                               //* And verify it
@@ -108,7 +109,9 @@ router
                                 <hr>
                                 <h3> Confirm you're email by clicking the link below </h3>
                                 //* ROUTE CONFIRMATION
-                                <a href="ROUTE/confirm/${token}">Confirm email</a> 
+                                <a href="http://localhost:8080/confirm/${token}" target="_blank">
+                                    <h3>Click here to confirm your email</h3>
+                                </a> 
                                 <p>
                                 Team Block L93
                                 </p>   

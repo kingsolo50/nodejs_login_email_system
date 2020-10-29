@@ -15,6 +15,7 @@ const   express = require("express"),
         admin               = require("./routes/admin"),
         userLogin           = require("./routes/userLogin"), 
         userRegistration    = require("./routes/userRegistration"),        
+        emailVerification   = require("./routes/emailVerification"),        
         
 // APP INIT 
         app = express();
@@ -50,6 +51,8 @@ const   db = mongoose.connection;
         app.use('/admin', admin);       
         app.use('/login', userLogin);
         app.use('/register', userRegistration); 
+        app.use('/confirm', emailVerification); 
+        app.use('/confirm/:token', emailVerification); 
         
         //HEROKU SETUP
         if (port == null || port == "") {

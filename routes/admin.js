@@ -49,7 +49,7 @@ router.delete('/delete/:id', (req, res) => {
 
     res.status(200).json({
       msg: 'User deleted successfully',
-      user: user
+      user: user.email
     });
     
   });
