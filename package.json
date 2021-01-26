@@ -4,6 +4,7 @@
   "description": "Node.js login and email confirmation system using passport.js for user login and authorisation and nodemalier to send a confirmation email.",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon",
     "test": "mocha"
   },
   "repository": {
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "colors": "^1.4.0",
     "mocha": "^8.1.3",
     "sinon": "^9.1.0"
   }

@@ -1,7 +1,7 @@
 'use strict'; 
 require('dotenv').config();
 
-        // NODE PACKAGES
+//*NODE PACKAGES
 const   express = require("express"),
         mongoose = require("mongoose"),
         path = require("path"),
@@ -9,15 +9,17 @@ const   express = require("express"),
         morgan = require("morgan"),
         port = process.env.PORT,
         helmet = require("helmet"),
+        colors  = require("colors"),
         
-//ROUTES
+//*ROUTES
         api                 = require("./routes/api"),
         admin               = require("./routes/admin"),
         userLogin           = require("./routes/userLogin"), 
         userRegistration    = require("./routes/userRegistration"),        
         emailVerification   = require("./routes/emailVerification"),        
+        passwordReset       = require("./routes/passwordReset"),        
         
-// APP INIT 
+//*APP INIT 
         app = express();
         app.use(express.json());
         app.use(express.urlencoded({ extended: false }));
@@ -44,15 +46,16 @@ const   mongoOptions = {
  
 const   db = mongoose.connection;         
         db.on('error', console.error.bind(console, 'Connection error'));
-        db.once('open', function () { console.log('Connected to database')});
+        db.once('open', function () { console.log(colors.random('Connected to database'))});
 
         //API ROUTES 
-        app.use('/api', api);       
+        app.use('/', api);       
         app.use('/admin', admin);       
         app.use('/login', userLogin);
         app.use('/register', userRegistration); 
         app.use('/confirm', emailVerification); 
         app.use('/confirm/:token', emailVerification); 
+        app.use('/password-reset', passwordReset); 
         
         //HEROKU SETUP
         if (port == null || port == "") {
@@ -85,5 +88,5 @@ const   db = mongoose.connection;
                 console.log('Error starting server')
                 return
             }
-            console.log(`App running on port ${process.env.PORT}`)
+            console.log(colors.random(`App running on port ${process.env.PORT}`))
         });         

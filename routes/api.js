@@ -3,18 +3,16 @@
 'use strict';
         require('dotenv').config();
 
-const   router = require('express').Router();
+const   router  = require('express').Router(),
+        path    = require('path');
 
         
 // =============================================================================
 // BASE API
 // =============================================================================
 router.get('/', (req, res, next) => {
-    
-    res.status(200).json({
-        msg: 'API base route',
-        success: true
-    });
+
+    res.sendFile(path.join(__dirname+'/routes.html'));
 
 })
 

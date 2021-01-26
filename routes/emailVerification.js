@@ -1,5 +1,5 @@
 
-//* --> localhost:8080/api/
+//* --> localhost:8080/confirm/
 'use strict';
 
 
@@ -25,14 +25,12 @@ router
 
       res.json({
           err: err,
-          status: 400,
+          status: 500,
           success: false,
-          msg: 'Failed to authenticate token check-jwt.js ' + token
+          msg: 'Failed to authenticate token...'
       });
 
     } else {
-      // console.log('User ID', decoded.user._id)
-      // console.log('User email', decoded.user.email)
 
       const query = User.findByIdAndUpdate(decoded.user._id, { $set: {emailVerified: 'true'}});
 
@@ -56,17 +54,6 @@ router
     
 
   });
-
-  // User.findByIdAndUpdate( id, { $set: { emailVerified: 'true' } }, (err, user) => {
-  //   if (err) throw err;
-  //   res.json({
-  //     msg: 'Email verified successfully',
-  //     success: true,
-  //     user: user
-  //   });
-  // });
-
-  //set email verification field to true
 
 });
 
